@@ -36,12 +36,12 @@ export const folderRoutes: RouteObject[] = [
 ]
 
 export const folderPages = {
-	root: () => `/folder`,
-	folder: (id: string) => `/folder/${id}`,
-	shared: () => `/folder/shared`
+	root: () => `/hikari-cloud-frontend/folder`,
+	folder: (id: string) => `/hikari-cloud-frontend/folder/${id}`,
+	shared: () => `/hikari-cloud-frontend/folder/shared`
 }
 
 export const sharePages = {
-	token: (token: string) => `/share/token/${token}`,
-	buildFullTokenPath: (token: string) => `${import.meta.env.VITE_URL}/shared/token/${token}`
+	token: (token: string) => `/hikari-cloud-frontend/share/token/${token}`,
+	buildFullTokenPath: (token: string) => `${import.meta.env.VITE_URL}/hikari-cloud-frontend/shared/token/${token}`
 }
