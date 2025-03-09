@@ -6,7 +6,7 @@ import {Test} from "./test.tsx";
 export const AppRouter = () => {
 	const router = createBrowserRouter([
 		{
-			path: "/",
+			path: "/hikari-cloud-frontend/",
 			element: <MainPageLayout/>,
 			children: [
 				{
