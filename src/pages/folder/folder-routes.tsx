@@ -43,5 +43,5 @@ export const folderPages = {
 
 export const sharePages = {
 	token: (token: string) => `/share/token/${token}`,
-	buildFullTokenPath: (token: string) => `http://localhost:5173/shared/token/${token}`
+	buildFullTokenPath: (token: string) => `${import.meta.env.VITE_URL}/shared/token/${token}`
 }
