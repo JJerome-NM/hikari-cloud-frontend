@@ -10,8 +10,12 @@ class FolderService{
 	private url = `${import.meta.env.VITE_HIKARI_CLOUD}/folder`;
 
 	getRoot(): Promise<AxiosResponse<FolderResponse>> {
-		return axiosInstance.get("https://wrhhwcj390.execute-api.eu-central-1.amazonaws.com/prod/test");
+		return axiosInstance.get(`${this.url}`);
 	}
+
+	// getRoot(): Promise<AxiosResponse<FolderResponse>> {
+	// 	return axiosInstance.get("https://wrhhwcj390.execute-api.eu-central-1.amazonaws.com/prod/test");
+	// }
 
 	create(data: FolderCreateRequest): Promise<AxiosResponse<FolderResponse>>{
 		return axiosInstance.post(`${this.url}`, data)
