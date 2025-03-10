@@ -33,6 +33,6 @@ export const AppRouter = () => {
 }
 
 export const appPages = {
-	home: () => `/hikari-cloud-frontend`,
+	home: () => `/hikari-cloud-frontend/`,
 	folder: folderPages,
 }
