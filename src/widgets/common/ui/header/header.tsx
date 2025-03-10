@@ -78,7 +78,7 @@ const StyledMenuButton = styled(MenuButton)`
 
     &:hover,
     &[data-headlessui-state="open"] {
-        background-color: #3f3f3f;
+        background-color: #ffffff11;
     }
 `
 
@@ -145,11 +145,27 @@ const StyledButton = styled.button`
     font-size: 1.2rem;
 `
 
+const StyledRightSideWrapper = styled.div`
+    display: flex;
+
+    flex-direction: row;
+    align-items: center;
+
+    padding: 5px;
+
+    gap: 10px;
+
+    & span {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+`
+
 export const Header = (
 	{
 		...props
 	}: IHeaderProps) => {
-	const {signoutSilent, signinRedirect, isAuthenticated} = useAuth();
+	const {signoutSilent, signinRedirect, isAuthenticated, user} = useAuth();
 
 	const signOutRedirect = () => {
 		signoutSilent()
@@ -162,15 +178,15 @@ export const Header = (
 	return (
 		<StyledHeaderWrapper {...props}>
 			<StyledHeaderLinks>
-				<StyledHeaderLink to={appPages.home()}>
+				<StyledHeaderLink to={appPages.home()} end>
 					Home
 				</StyledHeaderLink>
 				{isAuthenticated && (
 					<>
-						<StyledHeaderLink to={folderPages.root()}>
+						<StyledHeaderLink to={folderPages.root()} end>
 							Storage
 						</StyledHeaderLink>
-						<StyledHeaderLink to={folderPages.shared()}>
+						<StyledHeaderLink to={folderPages.shared()} end>
 							Shared objects
 						</StyledHeaderLink>
 					</>
@@ -184,22 +200,25 @@ export const Header = (
 			)}
 
 			{isAuthenticated && (
-				<Menu>
-					<StyledMenuButton>
-						<DotsVerticalIcon/>
-					</StyledMenuButton>
+				<StyledRightSideWrapper>
+					<span>{user?.profile["cognito:username"] as string}</span>
+					<Menu>
+						<StyledMenuButton>
+							<DotsVerticalIcon/>
+						</StyledMenuButton>
 
-					<StyledMenuItems anchor="bottom end">
-						{isAuthenticated && (
-							<StyledMenuItem>
-								<StyledButton onClick={signOutRedirect}>
-									<Logout5Icon/>
-									Logout
-								</StyledButton>
-							</StyledMenuItem>
-						)}
-					</StyledMenuItems>
-				</Menu>
+						<StyledMenuItems anchor="bottom end">
+							{isAuthenticated && (
+								<StyledMenuItem>
+									<StyledButton onClick={signOutRedirect}>
+										<Logout5Icon/>
+										Logout
+									</StyledButton>
+								</StyledMenuItem>
+							)}
+						</StyledMenuItems>
+					</Menu>
+				</StyledRightSideWrapper>
 			)}
 		</StyledHeaderWrapper>
 	)

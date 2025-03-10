@@ -152,25 +152,26 @@ export const FolderWidget = (
 			<OpenPhotoModal selectedPhoto={openedPhoto} onClose={() => setOpenedPhoto(undefined)}/>
 
 			<StyledFoldersList {...props} ref={listRef}>
-				{data?.items?.length === 0 && (
+				{Array.isArray(data?.items) && data?.items?.length === 0 && (
 					<p>Empty folder</p>
 				)}
 
-				{data?.items?.map((item) => item.type === "FOLDER" ? (
-						<FolderCard key={item.itemId}
-						            data={item as Folder}
-						            onSelect={() => {
-							            navigate(folderPages.folder(item.itemId))
-						            }}
-						            onDelete={onDeleteFolder}/>
-					) : (
-						<PhotoCard
-							key={item.itemId}
-							data={item as Photo}
-							onDelete={onDeletePhoto}
-							onOpenPhoto={setOpenedPhoto}/>
-					)
-				)}
+				{data?.items?.sort((a, b) => a.type === "FOLDER" && b.type !== "FOLDER" ? -1 : 1)
+					.map((item) => item.type === "FOLDER" ? (
+							<FolderCard key={item.itemId}
+							            data={item as Folder}
+							            onSelect={() => {
+								            navigate(folderPages.folder(item.itemId))
+							            }}
+							            onDelete={onDeleteFolder}/>
+						) : (
+							<PhotoCard
+								key={item.itemId}
+								data={item as Photo}
+								onDelete={onDeletePhoto}
+								onOpenPhoto={setOpenedPhoto}/>
+						)
+					)}
 			</StyledFoldersList>
 			<ContextMenu toggleRef={listRef}>
 				<ContextMenu.Item onClick={() => setCreateModalIsOpen(true)}>

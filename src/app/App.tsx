@@ -5,7 +5,7 @@ import {ContextMenuParent} from "../shared/ui/context-menu/context-menu-parent.t
 import {ToastContainer} from "react-toastify";
 import {ModalParent} from "../shared/ui/common/modal/modalParent.tsx";
 
-import { useAuth } from "react-oidc-context";
+import {useAuth} from "react-oidc-context";
 import {useEffect} from "react";
 import {DynamicBackground} from "../shared/ui";
 
@@ -13,8 +13,10 @@ function App() {
 	const auth = useAuth();
 
 	useEffect(() => {
-		if (auth.user?.id_token){
-			localStorage.setItem("id_token", auth.user?.id_token)
+		if (auth.user?.id_token) {
+			localStorage.setItem("id_token", auth.user?.id_token);
+		} else {
+			localStorage.removeItem("id_token");
 		}
 	}, [auth])
 

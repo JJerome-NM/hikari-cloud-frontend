@@ -10,7 +10,9 @@ export const SharedItemsPage = ({...props}: RootFolderPageProps) => {
 		isLoading ? (
 			<Loader.LoaderWithWrapper/>
 		) : (
-			<FolderWidget data={data} onListChanged={() => refetch()} {...props}/>
+			<FolderWidget data={{
+				items: data?.items || [],
+			}} onListChanged={() => refetch()} {...props}/>
 		)
 	)
 }
