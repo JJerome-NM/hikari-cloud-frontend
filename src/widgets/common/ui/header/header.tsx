@@ -5,6 +5,7 @@ import {folderPages} from "../../../../pages/folder/folder-routes.tsx";
 import {Menu, MenuButton, MenuItem, MenuItems} from "@headlessui/react";
 import {DotsVerticalIcon, Logout5Icon} from "../../../../shared/ui/icons/mainIcons.tsx";
 import {useAuth} from "react-oidc-context";
+import {appPages} from "../../../../app/routers/app-router.tsx";
 
 const StyledHeaderWrapper = styled.div`
     position: sticky;
@@ -157,11 +158,10 @@ export const Header = (
 		window.location.href = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
 	}
 
-
 	return (
 		<StyledHeaderWrapper {...props}>
 			<StyledHeaderLinks>
-				<StyledHeaderLink to={"/"}>
+				<StyledHeaderLink to={appPages.home()}>
 					Home
 				</StyledHeaderLink>
 				<StyledHeaderLink to={folderPages.root()}>
