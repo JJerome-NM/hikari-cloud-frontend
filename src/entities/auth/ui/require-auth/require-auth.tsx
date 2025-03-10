@@ -1,16 +1,19 @@
 import {useAuth} from "react-oidc-context";
 import {Loader} from "../../../../shared/ui/common/loader/loader.tsx";
-import {Outlet} from "react-router-dom";
+import {Navigate, Outlet} from "react-router-dom";
+import {toast} from "react-toastify";
+import {appPages} from "../../../../app/routers/app-router.tsx";
 
 export const RequireAuth = () => {
-	const {isAuthenticated, isLoading, signinRedirect} = useAuth()
+	const {isAuthenticated, isLoading} = useAuth()
 
 	if (!isAuthenticated && isLoading) {
 		return <Loader.LoaderWithWrapper/>
 	}
 
 	if (!isAuthenticated && !isLoading) {
-		signinRedirect()
+		toast.info("You need to be logged in to view this page")
+		return <Navigate to={appPages.home()} replace/>
 	}
 
 	return <Outlet/>

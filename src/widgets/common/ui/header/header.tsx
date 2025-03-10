@@ -165,12 +165,16 @@ export const Header = (
 				<StyledHeaderLink to={appPages.home()}>
 					Home
 				</StyledHeaderLink>
-				<StyledHeaderLink to={folderPages.root()}>
-					Storage
-				</StyledHeaderLink>
-				<StyledHeaderLink to={folderPages.shared()}>
-					Shared objects
-				</StyledHeaderLink>
+				{isAuthenticated && (
+					<>
+						<StyledHeaderLink to={folderPages.root()}>
+							Storage
+						</StyledHeaderLink>
+						<StyledHeaderLink to={folderPages.shared()}>
+							Shared objects
+						</StyledHeaderLink>
+					</>
+				)}
 			</StyledHeaderLinks>
 
 			<Button themeStyle="message" onClick={() => signinRedirect()}>
