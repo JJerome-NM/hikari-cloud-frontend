@@ -18,14 +18,6 @@ function App() {
 		}
 	}, [auth])
 
-	if (!auth.isAuthenticated){
-		return (
-			<div>
-				<button onClick={() => auth.signinRedirect()}>Sign in</button>
-			</div>
-		)
-	}
-
 	return (
 		<ThemeProvider theme={theme}>
 			<AppRouter/>

@@ -43,5 +43,5 @@ export const folderPages = {
 
 export const sharePages = {
 	token: (token: string) => `/hikari-cloud-frontend/share/token/${token}`,
-	buildFullTokenPath: (token: string) => `${import.meta.env.VITE_URL}/hikari-cloud-frontend/shared/token/${token}`
+	buildFullTokenPath: (token: string) => `${import.meta.env.VITE_URL}/shared/token/${token}` // TODO FIX URL
 }

@@ -1,7 +1,7 @@
 import {ComponentProps} from "react";
 import {Loader} from "../../../shared/ui/common/loader/loader.tsx";
 import {FolderWidget} from "../../../widgets/folder/ui/folder-widget/folder-widget.tsx";
-import {useShareGetItems} from "../../../entityes/share/api/hook/useShareGetItems.tsx";
+import {useShareGetItems} from "../../../entities/share/api/hook/useShareGetItems.tsx";
 
 export const SharedItemsPage = ({...props}: RootFolderPageProps) => {
 	const {data, isLoading, refetch} = useShareGetItems()

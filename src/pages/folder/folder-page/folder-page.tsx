@@ -1,5 +1,5 @@
 import {ComponentProps} from "react";
-import {useFolderGetById} from "../../../entityes/folder/api/hook/useFolderGetById.tsx";
+import {useFolderGetById} from "../../../entities/folder/api/hook/useFolderGetById.tsx";
 import {useParams} from "react-router-dom";
 import {Loader} from "../../../shared/ui/common/loader/loader.tsx";
 import {FolderWidget} from "../../../widgets/folder/ui/folder-widget/folder-widget.tsx";

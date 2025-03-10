@@ -1,6 +1,6 @@
 import {ComponentProps, useEffect} from "react";
 import {useNavigate, useParams} from "react-router-dom";
-import {useShareUseToken} from "../../../entityes/share/api/hook/useShareUseToken.tsx";
+import {useShareUseToken} from "../../../entities/share/api/hook/useShareUseToken.tsx";
 import {folderPages} from "../folder-routes.tsx";
 import {Loader} from "../../../shared/ui/common/loader/loader.tsx";
 import styled from "styled-components";

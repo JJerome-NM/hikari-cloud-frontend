@@ -1,15 +1,15 @@
 import {ComponentProps, useCallback, useRef, useState} from "react";
 import {Folder, FolderCreateRequest, FolderResponse, Item, Photo} from "../../../../shared/api/folder/types.ts";
-import {FolderCard} from "../../../../entityes/folder/ui/folderCard/folderCard.tsx";
+import {FolderCard} from "../../../../entities/folder/ui/folderCard/folderCard.tsx";
 import styled from "styled-components";
-import {useFolderDelete} from "../../../../entityes/folder/api/hook/useFolderDelete.tsx";
-import {PhotoCard} from "../../../../entityes/photo/ui/photo-card/photo-card.tsx";
+import {useFolderDelete} from "../../../../entities/folder/api/hook/useFolderDelete.tsx";
+import {PhotoCard} from "../../../../entities/photo/ui/photo-card/photo-card.tsx";
 import {folderPages} from "../../../../pages/folder/folder-routes.tsx";
 import {useNavigate, useParams} from "react-router-dom";
 import {PageLayout} from "../../../../shared/ui/layout";
 import {ContextMenu} from "../../../../shared/ui/context-menu/context-menu.tsx";
 import {FolderIcon} from "../../../../shared/ui/icons/mainIcons.tsx";
-import {useFolderCreate} from "../../../../entityes/folder/api/hook/useFolderCreate.tsx";
+import {useFolderCreate} from "../../../../entities/folder/api/hook/useFolderCreate.tsx";
 import {toast, ToastContentProps} from "react-toastify";
 import {Modal} from "../../../../shared/ui/common/modal/modal.tsx";
 import {ControlledForm} from "../../../../shared/ui/form/form/controlledForm.tsx";
@@ -17,10 +17,10 @@ import {SubmitHandler, useForm} from "react-hook-form";
 import {InputField} from "../../../../shared/ui/form/fields/inputField/inputField.tsx";
 import {Button} from "../../../../shared/ui/common/button";
 import {AxiosError} from "axios";
-import {usePhotoDelete} from "../../../../entityes/photo/api/hook/usePhotoDelete.tsx";
+import {usePhotoDelete} from "../../../../entities/photo/api/hook/usePhotoDelete.tsx";
 import {UploadFileArea} from "../../../../shared/ui/form/inputs/upload-file-area/upload-file-area.tsx";
-import {useFolderUploadPhoto} from "../../../../entityes/folder/api/hook/useFolderUploadPhoto.tsx";
-import {OpenPhotoModal} from "../../../../entityes/photo/ui/open-photo-modal/open-photo-modal.tsx";
+import {useFolderUploadPhoto} from "../../../../entities/folder/api/hook/useFolderUploadPhoto.tsx";
+import {OpenPhotoModal} from "../../../../entities/photo/ui/open-photo-modal/open-photo-modal.tsx";
 
 const StyledFoldersList = styled.div`
     display: grid;

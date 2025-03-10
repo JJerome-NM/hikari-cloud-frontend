@@ -1,8 +1,8 @@
 import {ComponentProps, useCallback} from "react";
 import styled from "styled-components";
 import {Menu, MenuButton, MenuItem, MenuItems} from "@headlessui/react";
-import {Folder} from "../../../../shared/api/folder/types";
-import {Copy4Icon, DotsVerticalIcon, FolderIcon, Trash6Icon} from "../../../../shared/ui/icons/mainIcons";
+import {Folder} from "../../../../shared/api/folder/types.ts";
+import {Copy4Icon, DotsVerticalIcon, FolderIcon, Trash6Icon} from "../../../../shared/ui/icons/mainIcons.tsx";
 import {toast} from "react-toastify";
 import {sharePages} from "../../../../pages/folder/folder-routes.tsx";
 

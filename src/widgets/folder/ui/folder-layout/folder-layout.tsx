@@ -1,15 +1,15 @@
 import {ComponentProps, useState} from "react";
 import {PageLayout} from "../../../../shared/ui/layout";
-import {PageLayoutLeftNav} from "../../../../entityes/common/ui/page-layout-left-nav";
+import {PageLayoutLeftNav} from "../../../../entities/common/ui/page-layout-left-nav";
 import {ColoredSectionTitle} from "../../../../shared/ui/common/coloredSectionTitle/coloredSectionTitle.tsx";
-import {useFolderGetRoot} from "../../../../entityes/folder/api/hook/useFolderGetRoot.tsx";
+import {useFolderGetRoot} from "../../../../entities/folder/api/hook/useFolderGetRoot.tsx";
 import {Outlet, useNavigate} from "react-router-dom";
 import {Button} from "../../../../shared/ui/common/button";
 import styled from "styled-components";
 import {FolderIcon, PhotoIcon} from "../../../../shared/ui/icons/mainIcons.tsx";
 import {folderPages} from "../../../../pages/folder/folder-routes.tsx";
 import {RouteLink} from "../../../../shared/ui/common/nav";
-import {OpenPhotoModal} from "../../../../entityes/photo/ui/open-photo-modal/open-photo-modal.tsx";
+import {OpenPhotoModal} from "../../../../entities/photo/ui/open-photo-modal/open-photo-modal.tsx";
 import {Photo} from "../../../../shared/api/folder/types.ts";
 
 const StyledItemRow = styled(RouteLink)`

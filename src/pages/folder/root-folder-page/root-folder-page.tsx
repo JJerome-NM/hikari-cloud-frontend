@@ -1,5 +1,5 @@
 import {ComponentProps} from "react";
-import {useFolderGetRoot} from "../../../entityes/folder/api/hook/useFolderGetRoot.tsx";
+import {useFolderGetRoot} from "../../../entities/folder/api/hook/useFolderGetRoot.tsx";
 import {FolderWidget} from "../../../widgets/folder/ui/folder-widget/folder-widget.tsx";
 import {Loader} from "../../../shared/ui/common/loader/loader.tsx";
 
