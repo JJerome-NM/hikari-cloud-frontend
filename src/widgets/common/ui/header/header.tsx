@@ -177,9 +177,11 @@ export const Header = (
 				)}
 			</StyledHeaderLinks>
 
-			<Button themeStyle="message" onClick={() => signinRedirect()}>
-				SignIn
-			</Button>
+			{!isAuthenticated && (
+				<Button themeStyle="message" onClick={() => signinRedirect()}>
+					SignIn
+				</Button>
+			)}
 
 			{isAuthenticated && (
 				<Menu>
