@@ -169,7 +169,7 @@ export const Header = (
 
 	const signOutRedirect = () => {
 		signoutSilent()
-		const clientId = "77hfv86tt5nkprc5ggjpfen7ln";
+		const clientId = "64joqvtht82nfh2vtvc1g4nfip";
 		const logoutUri = `${import.meta.env.VITE_URL}`;
 		const cognitoDomain = "https://hikari-cloud-auth.auth.eu-central-1.amazoncognito.com";
 		window.location.href = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;

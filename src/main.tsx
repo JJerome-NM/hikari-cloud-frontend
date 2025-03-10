@@ -8,8 +8,8 @@ import {WebStorageStateStore} from "oidc-client-ts";
 const queryClient = new QueryClient()
 
 const cognitoAuthConfig = {
-	authority: "https://cognito-idp.eu-central-1.amazonaws.com/eu-central-1_WdqZYfdCV",
-	client_id: "77hfv86tt5nkprc5ggjpfen7ln",
+	authority: "https://cognito-idp.eu-central-1.amazonaws.com/eu-central-1_BhipPNxRq",
+	client_id: "64joqvtht82nfh2vtvc1g4nfip",
 	redirect_uri: `${import.meta.env.VITE_URL}`,
 	response_type: "code",
 	scope: "email openid phone profile",

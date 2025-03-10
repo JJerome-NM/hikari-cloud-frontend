@@ -42,38 +42,38 @@ export const HomePage = ({...props}: HomePageProps) => {
 
 	return (
 		<StyledWrapper {...props}>
-			<StyledTitle>Ласкаво просимо до Hikari Cloud</StyledTitle>
+			<StyledTitle>Welcome to Hikari Cloud</StyledTitle>
 
 			<StyledDescription>
-				Цей сервіс дає вам можливість зберігати та впорядковувати ваші фотографії
-				у хмарі, ділитися ними з друзями або колегами, а також об’єднувати їх у
-				папки та підпапки. Усі ваші фото надійно зберігаються в хмарі (S3).
-				Реєструйтесь, завантажуйте знімки і насолоджуйтесь спогадами де б ви не були!
+				This service allows you to store and organise your photos<br/>
+				in the cloud, share them with friends or colleagues, and organise them into<br/>
+				folders and subfolders. All your photos are securely stored in the cloud (S3).<br/>
+				Sign up, upload your photos and enjoy your memories wherever you are!<br/>
 			</StyledDescription>
 
 			<StyledActions>
 				{!isAuthenticated && (
 					<Button themeStyle="message" onClick={() => signinRedirect()}>
-						Увійти або Зареєструватись
+						Login or Register
 					</Button>
 				)}
 				{isAuthenticated && (
 					<Button themeStyle="primary" onClick={() => navigate(folderPages.root())}>
-						Перейти до мого фотоальбому
+						Go to my storage
 					</Button>
 				)}
 			</StyledActions>
 
 			<StyledDescription>
-				<strong>Основні можливості:</strong><br/>
-				1. Реєстрація та авторизація користувачів, щоб бачити лише свої фото.<br/>
-				2. Головна сторінка, що розповідає про наш сервіс (доступна всім).<br/>
-				3. Сторінка фотоальбому — лише для зареєстрованих користувачів.<br/>
-				4. Завантаження фото та зберігання в хмарі.<br/>
-				5. Створення папок і вкладених папок для впорядкування фотографій.<br/>
+				<strong>Main features:</strong><br/>
+				1. Register and authorise users to see only their photos.<br/>
+				2. The main page that tells about our service (accessible to everyone).<br/>
+				3. Photo album page - for registered users only.<br/>
+				4. Upload photos and store them in the cloud.<br/>
+				5. Create folders and subfolders to organise your photos.<br/>
 				<br/>
-				<strong>Додатково:</strong><br/>
-				• Можливість ділитися окремими фото або цілими папками.<br/>
+				<strong>Additionally:</strong><br/>
+				• Share individual photos or entire folders.<br/>
 			</StyledDescription>
 		</StyledWrapper>
 	)
