@@ -6,6 +6,7 @@ import {Menu, MenuButton, MenuItem, MenuItems} from "@headlessui/react";
 import {DotsVerticalIcon, Logout5Icon} from "../../../../shared/ui/icons/mainIcons.tsx";
 import {useAuth} from "react-oidc-context";
 import {appPages} from "../../../../app/routers/app-router.tsx";
+import {Button} from "../../../../shared/ui/common/button";
 
 const StyledHeaderWrapper = styled.div`
     position: sticky;
@@ -148,10 +149,10 @@ export const Header = (
 	{
 		...props
 	}: IHeaderProps) => {
-	const auth = useAuth();
+	const {signoutSilent, signinRedirect, isAuthenticated} = useAuth();
 
 	const signOutRedirect = () => {
-		auth.signoutSilent()
+		signoutSilent()
 		const clientId = "77hfv86tt5nkprc5ggjpfen7ln";
 		const logoutUri = `${import.meta.env.VITE_URL}`;
 		const cognitoDomain = "https://hikari-cloud-auth.auth.eu-central-1.amazoncognito.com";
@@ -172,20 +173,28 @@ export const Header = (
 				</StyledHeaderLink>
 			</StyledHeaderLinks>
 
-			<Menu>
-				<StyledMenuButton>
-					<DotsVerticalIcon/>
-				</StyledMenuButton>
+			<Button themeStyle="message" onClick={() => signinRedirect()}>
+				SignIn
+			</Button>
 
-				<StyledMenuItems anchor="bottom end">
-					<StyledMenuItem>
-						<StyledButton onClick={signOutRedirect}>
-							<Logout5Icon/>
-							Logout
-						</StyledButton>
-					</StyledMenuItem>
-				</StyledMenuItems>
-			</Menu>
+			{isAuthenticated && (
+				<Menu>
+					<StyledMenuButton>
+						<DotsVerticalIcon/>
+					</StyledMenuButton>
+
+					<StyledMenuItems anchor="bottom end">
+						{isAuthenticated && (
+							<StyledMenuItem>
+								<StyledButton onClick={signOutRedirect}>
+									<Logout5Icon/>
+									Logout
+								</StyledButton>
+							</StyledMenuItem>
+						)}
+					</StyledMenuItems>
+				</Menu>
+			)}
 		</StyledHeaderWrapper>
 	)
 }
